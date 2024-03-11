@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 
-export const get: APIRoute = function get(/* { params, request } */) {
+export const GET: APIRoute = function get(/* { params, request } */) {
 	/* IDEA: Can be dynamicized (alternative colors…) */
 
 	const icon = /* html */ `
@@ -82,10 +82,9 @@ export const get: APIRoute = function get(/* { params, request } */) {
 </svg>
 `;
 
-	return {
-		body: icon,
+	return new Response(icon, {
 		headers: {
 			'Content-Type': 'image/svg+xml',
-		},
-	};
+		}
+	});
 };
