@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import * as operations from '../../services/index.js';
 
 /* Map REST API endpoints to internal operations
-  (GETs only for illustration purpose) */
+	(GETs only for illustration purpose) */
 export const endpointsToOperations = {
 	products: operations.getProducts,
 	users: operations.getUsers,
@@ -15,7 +15,7 @@ function parseTypeParam(endpoint: string | undefined) {
 
 /* Controllers */
 
-export const get: APIRoute = ({ params /* , request */ }) => {
+export const GET: APIRoute = ({ params /* , request */ }) => {
 	console.log('Hit!', params.entity);
 
 	const operationName = parseTypeParam(params.entity);
